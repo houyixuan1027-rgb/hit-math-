@@ -1,0 +1,1537 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Hello, World</h1>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathMaster Oakville | Tutorat de Mathématiques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2196F3;
+            --accent-color: #FFC107;
+            --light-bg: #f9f9f9;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 150px 5% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 35px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .btn.primary {
+            background: var(--accent-color);
+            color: var(--text-color);
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+        }
+        
+        .btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn.primary:hover {
+            background: #ffb300;
+        }
+        
+        .btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+            font-size: 2.2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        
+        .achievement {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .achievement:hover {
+            transform: translateY(-5px);
+        }
+        
+        .achievement i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .achievement h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Services Section */
+        .services {
+            background: var(--light-bg);
+            border-radius: 20px;
+            margin: 50px 5%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-card .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin: 1.5rem 0;
+        }
+        
+        .service-card .price small {
+            font-size: 1rem;
+            color: #777;
+        }
+        
+        .service-card ul {
+            text-align: left;
+            margin: 1.5rem 0;
+            list-style: none;
+        }
+        
+        .service-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .service-card ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* Booking Section */
+        .booking {
+            background: white;
+            border-radius: 20px;
+            padding: 4rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            margin-top: 50px;
+        }
+        
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .booking-info {
+            padding-right: 2rem;
+        }
+        
+        .booking-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .booking-steps {
+            margin: 2rem 0;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .booking-form {
+            background: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .payment-options {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f0f8f0;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .payment-options p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-submit {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        /* Resources Section */
+        .resources {
+            background: var(--light-bg);
+            border-radius: 20px;
+            margin: 50px 5%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .resource-icon {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        
+        .resource-content {
+            padding: 1.5rem;
+        }
+        
+        .resource-content h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .resource-content p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: white;
+            border-radius: 20px;
+            margin: 50px 5%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            padding-right: 2rem;
+        }
+        
+        .contact-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-details {
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 4rem 5% 2rem;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Success Message */
+        .success-message {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        /* Hidden class for language switching */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .about-content,
+            .booking-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .booking-info,
+            .contact-info {
+                padding-right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .achievements {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .booking,
+            .services,
+            .resources,
+            .contact {
+                margin: 30px 2%;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-square-root-alt"></i>
+                <span>MathMaster Oakville</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" data-key="nav_about">About</a></li>
+                <li><a href="#services" data-key="nav_services">Services</a></li>
+                <li><a href="#booking" data-key="nav_booking">Book a Session</a></li>
+                <li><a href="#resources" data-key="nav_resources">Resources</a></li>
+                <li><a href="#contact" data-key="nav_contact">Contact</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="lang-content active" data-lang="en">
+                <h1 data-key="hero_title">Professional Math Tutoring in Oakville</h1>
+                <p data-key="hero_subtitle">Grade 11 math expert offering personalized tutoring for Canadian high school students. Pay after your session - satisfaction guaranteed!</p>
+            </div>
+            <div class="lang-content" data-lang="fr">
+                <h1 data-key="hero_title">Tutorat Professionnel en Mathématiques à Oakville</h1>
+                <p data-key="hero_subtitle">Expert en mathématiques de 11e année offrant du tutorat personnalisé pour les élèves du secondaire canadien. Payez après votre séance - satisfaction garantie!</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="#booking" class="btn primary" data-key="hero_cta1"><i class="fas fa-calendar-check"></i> Book a Session</a>
+                <a href="#resources" class="btn secondary" data-key="hero_cta2"><i class="fas fa-download"></i> Free Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title" data-key="about_title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <div class="lang-content active" data-lang="en">
+                    <h3>Your Math Tutor</h3>
+                    <p data-key="about_text1">I'm a Grade 11 honors student with a 98% average in mathematics. My passion for math and helping others succeed drives me to provide the best tutoring experience.</p>
+                    <p data-key="about_text2">I specialize in the Ontario math curriculum (grades 9-11) and focus on building strong foundational understanding while developing problem-solving skills.</p>
+                </div>
+                <div class="lang-content" data-lang="fr">
+                    <h3>Votre Tuteur en Mathématiques</h3>
+                    <p data-key="about_text1">Je suis un élève de 11e année avec une moyenne de 98% en mathématiques. Ma passion pour les maths et aider les autres à réussir me motive à offrir la meilleure expérience de tutorat.</p>
+                    <p data-key="about_text2">Je me spécialise dans le programme de mathématiques de l'Ontario (9e à 11e année) et me concentre sur le développement d'une solide compréhension fondamentale tout en développant des compétences en résolution de problèmes.</p>
+                </div>
+                
+                <div class="achievements">
+                    <div class="achievement">
+                        <i class="fas fa-award"></i>
+                        <h4 data-key="achievement1_title">98% Average</h4>
+                        <p data-key="achievement1_desc">Math Grades</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-clock"></i>
+                        <h4 data-key="achievement2_title">3+ Years</h4>
+                        <p data-key="achievement2_desc">Tutoring Experience</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-user-graduate"></i>
+                        <h4 data-key="achievement3_title">50+ Students</h4>
+                        <p data-key="achievement3_desc">Helped</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <!-- Add your photo here -->
+                <div style="background: linear-gradient(135deg, #4CAF50, #2196F3); height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                    <div style="text-align: center; padding: 2rem;">
+                        <i class="fas fa-user" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                        <p data-key="photo_placeholder">Your Photo Here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title" data-key="services_title">Tutoring Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <h3 data-key="service1_title">One-on-One Tutoring</h3>
+                <div class="lang-content active" data-lang="en">
+                    <p>Personalized sessions tailored to your specific needs and learning style. Pay after your session!</p>
+                </div>
+                <div class="lang-content" data-lang="fr">
+                    <p>Séances personnalisées adaptées à vos besoins spécifiques et style d'apprentissage. Payez après votre séance!</p>
+                </div>
+                <div class="price">$50<small>/hour</small></div>
+                <ul>
+                    <li data-key="service1_feature1">Homework help</li>
+                    <li data-key="service1_feature2">Concept explanation</li>
+                    <li data-key="service1_feature3">Flexible scheduling</li>
+                    <li data-key="service1_feature4">Pay after session</li>
+                </ul>
+                <a href="#booking" class="btn primary" data-key="service_cta">Book Now</a>
+            </div>
+            
+            <div class="service-card">
+                <h3 data-key="service2_title">Competition Math</h3>
+                <div class="lang-content active" data-lang="en">
+                    <p>Advanced training for math competitions and challenging problems. Pay after your session!</p>
+                </div>
+                <div class="lang-content" data-lang="fr">
+                    <p>Formation avancée pour les concours de mathématiques et problèmes difficiles. Payez après votre séance!</p>
+                </div>
+                <div class="price">$55<small>/hour</small></div>
+                <ul>
+                    <li data-key="service2_feature1">Competition strategies</li>
+                    <li data-key="service2_feature2">Advanced problem solving</li>
+                    <li data-key="service2_feature3">Past competition practice</li>
+                    <li data-key="service2_feature4">Pay after session</li>
+                </ul>
+                <a href="#booking" class="btn primary" data-key="service_cta">Book Now</a>
+            </div>
+            
+            <div class="service-card">
+                <h3 data-key="service3_title">Group Sessions</h3>
+                <div class="lang-content active" data-lang="en">
+                    <p>Small group learning with 2-3 students for collaborative problem-solving. Pay after your session!</p>
+                </div>
+                <div class="lang-content" data-lang="fr">
+                    <p>Apprentissage en petit groupe avec 2-3 étudiants pour la résolution collaborative de problèmes. Payez après votre séance!</p>
+                </div>
+                <div class="price">$35<small>/student</small></div>
+                <ul>
+                    <li data-key="service3_feature1">Small groups (2-3 students)</li>
+                    <li data-key="service3_feature2">Collaborative learning</li>
+                    <li data-key="service3_feature3">Cost-effective</li>
+                    <li data-key="service3_feature4">Pay after session</li>
+                </ul>
+                <a href="#booking" class="btn primary" data-key="service_cta">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <h2 class="section-title" data-key="booking_title">Book a Session</h2>
+        
+        <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i> <span data-key="booking_success">Your booking has been submitted successfully! We'll contact you within 24 hours to confirm.</span>
+        </div>
+        
+        <div class="booking-container">
+            <div class="booking-info">
+                <div class="lang-content active" data-lang="en">
+                    <h3>Schedule Your Math Session</h3>
+                    <p>Book a personalized math tutoring session that fits your schedule. Select your preferred date and time.</p>
+                    
+                    <div class="booking-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h4>Choose Service & Date</h4>
+                                <p>Select the type of tutoring you need and pick an available date.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h4>Select Time</h4>
+                                <p>Choose from available time slots at Abbey Park Library.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h4>Provide Details</h4>
+                                <p>Fill in your information and any specific topics you want to cover.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Flexible Scheduling:</strong> 
+                        <br>- Mon-Fri: 3:00 PM - 9:00 PM
+                        <br>- Saturday: 9:00 AM - 6:00 PM
+                        <br>- Sunday: 1:00 PM - 6:00 PM
+                    </p>
+                    <p><strong>Location:</strong> Abbey Park Library, Oakville</p>
+                    <p><strong>Payment:</strong> Cash only, pay after your session</p>
+                </div>
+                
+                <div class="lang-content" data-lang="fr">
+                    <h3>Planifiez Votre Séance de Mathématiques</h3>
+                    <p>Réservez une séance de tutorat en mathématiques personnalisée qui convient à votre emploi du temps. Sélectionnez la date et l'heure de votre choix.</p>
+                    
+                    <div class="booking-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h4>Choisissez le Service et la Date</h4>
+                                <p>Sélectionnez le type de tutorat dont vous avez besoin et choisissez une date disponible.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h4>Sélectionnez l'Heure</h4>
+                                <p>Choisissez parmi les créneaux horaires disponibles à la bibliothèque Abbey Park.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h4>Fournissez les Détails</h4>
+                                <p>Remplissez vos informations et les sujets spécifiques que vous souhaitez aborder.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Emploi du temps flexible:</strong> 
+                        <br>- Lun-Ven: 15h00 - 21h00
+                        <br>- Samedi: 9h00 - 18h00
+                        <br>- Dimanche: 13h00 - 18h00
+                    </p>
+                    <p><strong>Lieu:</strong> Bibliothèque Abbey Park, Oakville</p>
+                    <p><strong>Paiement:</strong> Argent comptant uniquement, payez après votre séance</p>
+                </div>
+            </div>
+            
+            <div class="booking-form">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="serviceType" data-key="form_service">Service Type *</label>
+                        <select id="serviceType" required>
+                            <option value="" data-key="form_service_select">Select a service</option>
+                            <option value="one-on-one" data-key="form_service_one">One-on-One Tutoring - $50/hour</option>
+                            <option value="competition" data-key="form_service_comp">Competition Math - $55/hour</option>
+                            <option value="group" data-key="form_service_group">Group Session - $35/student</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preferredDate" data-key="form_date">Preferred Date *</label>
+                            <input type="date" id="preferredDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredTime" data-key="form_time">Preferred Time *</label>
+                            <select id="preferredTime" required>
+                                <option value="" data-key="form_time_select">Select time</option>
+                                <!-- Time slots will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location" data-key="form_location">Location</label>
+                        <input type="text" id="location" value="Abbey Park Library, Oakville" readonly>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="studentName" data-key="form_name">Student Name *</label>
+                            <input type="text" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gradeLevel" data-key="form_grade">Grade Level *</label>
+                            <select id="gradeLevel" required>
+                                <option value="" data-key="form_grade_select">Select Grade</option>
+                                <option value="9">Grade 9</option>
+                                <option value="10">Grade 10</option>
+                                <option value="11">Grade 11</option>
+                                <option value="12">Grade 12</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parentName" data-key="form_parent">Parent Name</label>
+                            <input type="text" id="parentName">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-key="form_email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" data-key="form_phone">Phone Number</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="topics" data-key="form_topics">Topics to Cover</label>
+                        <textarea id="topics" placeholder="E.g., Quadratic equations, trigonometry, etc."></textarea>
+                    </div>
+                    
+                    <div class="payment-options">
+                        <p><strong data-key="payment_options">Payment Information:</strong></p>
+                        <p data-key="payment_cash">• Cash only - pay after your session</p>
+                        <p data-key="payment_policy">• No advance payment required</p>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn primary" style="width: 100%;" data-key="form_submit">
+                            <i class="fas fa-paper-plane"></i> Submit Booking Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <h2 class="section-title" data-key="resources_title">Free Resources</h2>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="resource-content">
+                    <h3 data-key="resource1_title">Grade 9 Worksheets</h3>
+                    <p data-key="resource1_desc">Algebra and linear relations practice problems with step-by-step solutions.</p>
+                    <a href="#" class="btn secondary" data-key="resource_download"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <i class="fas fa-function"></i>
+                </div>
+                <div class="resource-content">
+                    <h3 data-key="resource2_title">Grade 10 Guides</h3>
+                    <p data-key="resource2_desc">Quadratic functions and trigonometry cheat sheets and practice problems.</p>
+                    <a href="#" class="btn secondary" data-key="resource_download"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="resource-content">
+                    <h3 data-key="resource3_title">Grade 11 Materials</h3>
+                    <p data-key="resource3_desc">Functions, trigonometry, and advanced algebra problems with solutions.</p>
+                    <a href="#" class="btn secondary" data-key="resource_download"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="resource-content">
+                    <h3 data-key="resource4_title">Exam Tips & Strategies</h3>
+                    <p data-key="resource4_desc">Proven strategies for math tests, time management, and reducing anxiety.</p>
+                    <a href="#" class="btn secondary" data-key="resource_download"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title" data-key="contact_title">Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="lang-content active" data-lang="en">
+                    <h3 data-key="contact_subtitle">Get In Touch</h3>
+                    <p>Contact me to schedule your first session or ask any questions about my tutoring services. I'm here to help you succeed in math!</p>
+                </div>
+                <div class="lang-content" data-lang="fr">
+                    <h3 data-key="contact_subtitle">Contactez-moi</h3>
+                    <p>Contactez-moi pour planifier votre première séance ou poser des questions sur mes services de tutorat. Je suis là pour vous aider à réussir en mathématiques!</p>
+                </div>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong data-key="contact_email">Email:</strong> houyixuan1027@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong data-key="contact_location">Location:</strong> Oakville, ON
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong data-key="contact_response">Response Time:</strong> Within 24 hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName" data-key="form_name">Name *</label>
+                        <input type="text" id="contactName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail" data-key="form_email">Email *</label>
+                        <input type="email" id="contactEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactSubject" data-key="form_subject">Subject</label>
+                        <input type="text" id="contactSubject">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage" data-key="form_message">Message *</label>
+                        <textarea id="contactMessage" required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn primary" style="width: 100%;" data-key="form_submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>MathMaster Oakville</h3>
+                <p data-key="footer_tagline">Making math accessible and enjoyable for Oakville students.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 data-key="footer_links">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#about" data-key="nav_about">About</a></li>
+                    <li><a href="#services" data-key="nav_services">Services</a></li>
+                    <li><a href="#booking" data-key="nav_booking">Book a Session</a></li>
+                    <li><a href="#resources" data-key="nav_resources">Resources</a></li>
+                    <li><a href="#contact" data-key="nav_contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 data-key="footer_services">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-key="service1_title">One-on-One Tutoring</a></li>
+                    <li><a href="#" data-key="service2_title">Competition Math</a></li>
+                    <li><a href="#" data-key="service3_title">Group Sessions</a></li>
+                    <li><a href="#" data-key="resources_title">Free Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 data-key="footer_contact">Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> houyixuan1027@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Oakville, ON</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-key="footer_text">© 2023 MathMaster Oakville Tutoring. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language data
+        const translations = {
+            en: {
+                nav_about: "About",
+                nav_services: "Services",
+                nav_booking: "Book a Session",
+                nav_resources: "Resources",
+                nav_contact: "Contact",
+                hero_title: "Professional Math Tutoring in Oakville",
+                hero_subtitle: "Grade 11 math expert offering personalized tutoring for Canadian high school students. Pay after your session - satisfaction guaranteed!",
+                hero_cta1: "Book a Session",
+                hero_cta2: "Free Resources",
+                about_title: "About Me",
+                about_text1: "I'm a Grade 11 honors student with a 98% average in mathematics. My passion for math and helping others succeed drives me to provide the best tutoring experience.",
+                about_text2: "I specialize in the Ontario math curriculum (grades 9-11) and focus on building strong foundational understanding while developing problem-solving skills.",
+                achievement1_title: "98% Average",
+                achievement1_desc: "Math Grades",
+                achievement2_title: "3+ Years",
+                achievement2_desc: "Tutoring Experience",
+                achievement3_title: "50+ Students",
+                achievement3_desc: "Helped",
+                photo_placeholder: "Your Photo Here",
+                services_title: "Tutoring Services",
+                service1_title: "One-on-One Tutoring",
+                service1_feature1: "Homework help",
+                service1_feature2: "Concept explanation",
+                service1_feature3: "Flexible scheduling",
+                service1_feature4: "Pay after session",
+                service2_title: "Competition Math",
+                service2_feature1: "Competition strategies",
+                service2_feature2: "Advanced problem solving",
+                service2_feature3: "Past competition practice",
+                service2_feature4: "Pay after session",
+                service3_title: "Group Sessions",
+                service3_feature1: "Small groups (2-3 students)",
+                service3_feature2: "Collaborative learning",
+                service3_feature3: "Cost-effective",
+                service3_feature4: "Pay after session",
+                service_cta: "Book Now",
+                booking_title: "Book a Session",
+                booking_success: "Your booking has been submitted successfully! We'll contact you within 24 hours to confirm.",
+                form_service: "Service Type *",
+                form_service_select: "Select a service",
+                form_service_one: "One-on-One Tutoring - $50/hour",
+                form_service_comp: "Competition Math - $55/hour",
+                form_service_group: "Group Session - $35/student",
+                form_date: "Preferred Date *",
+                form_time: "Preferred Time *",
+                form_time_select: "Select time",
+                form_location: "Location",
+                form_name: "Student Name *",
+                form_grade: "Grade Level *",
+                form_grade_select: "Select Grade",
+                form_parent: "Parent Name",
+                form_email: "Email *",
+                form_phone: "Phone Number",
+                form_topics: "Topics to Cover",
+                payment_options: "Payment Information:",
+                payment_cash: "• Cash only - pay after your session",
+                payment_policy: "• No advance payment required",
+                form_submit: "Submit Booking Request",
+                resources_title: "Free Resources",
+                resource1_title: "Grade 9 Worksheets",
+                resource1_desc: "Algebra and linear relations practice problems with step-by-step solutions.",
+                resource2_title: "Grade 10 Guides",
+                resource2_desc: "Quadratic functions and trigonometry cheat sheets and practice problems.",
+                resource3_title: "Grade 11 Materials",
+                resource3_desc: "Functions, trigonometry, and advanced algebra problems with solutions.",
+                resource4_title: "Exam Tips & Strategies",
+                resource4_desc: "Proven strategies for math tests, time management, and reducing anxiety.",
+                resource_download: "Download",
+                contact_title: "Contact Me",
+                contact_subtitle: "Get In Touch",
+                contact_email: "Email:",
+                contact_location: "Location:",
+                contact_response: "Response Time:",
+                form_subject: "Subject",
+                form_message: "Message *",
+                footer_tagline: "Making math accessible and enjoyable for Oakville students.",
+                footer_links: "Quick Links",
+                footer_services: "Services",
+                footer_contact: "Contact Info",
+                footer_text: "© 2023 MathMaster Oakville Tutoring. All rights reserved."
+            },
+            fr: {
+                nav_about: "À Propos",
+                nav_services: "Services",
+                nav_booking: "Réserver une Séance",
+                nav_resources: "Ressources",
+                nav_contact: "Contact",
+                hero_title: "Tutorat Professionnel en Mathématiques à Oakville",
+                hero_subtitle: "Expert en mathématiques de 11e année offrant du tutorat personnalisé pour les élèves du secondaire canadien. Payez après votre séance - satisfaction garantie!",
+                hero_cta1: "Réserver une Séance",
+                hero_cta2: "Ressources Gratuites",
+                about_title: "À Propos de Moi",
+                about_text1: "Je suis un élève de 11e année avec une moyenne de 98% en mathématiques. Ma passion pour les maths et aider les autres à réussir me motive à offrir la meilleure expérience de tutorat.",
+                about_text2: "Je me spécialise dans le programme de mathématiques de l'Ontario (9e à 11e année) et me concentre sur le développement d'une solide compréhension fondamentale tout en développant des compétences en résolution de problèmes.",
+                achievement1_title: "98% de Moyenne",
+                achievement1_desc: "Notes en Mathématiques",
+                achievement2_title: "3+ Ans",
+                achievement2_desc: "Expérience en Tutorat",
+                achievement3_title: "50+ Étudiants",
+                achievement3_desc: "Aidés",
+                photo_placeholder: "Votre Photo Ici",
+                services_title: "Services de Tutorat",
+                service1_title: "Tutorat Individuel",
+                service1_feature1: "Aide aux devoirs",
+                service1_feature2: "Explication des concepts",
+                service1_feature3: "Emploi du temps flexible",
+                service1_feature4: "Payez après la séance",
+                service2_title: "Mathématiques de Compétition",
+                service2_feature1: "Stratégies de compétition",
+                service2_feature2: "Résolution de problèmes avancés",
+                service2_feature3: "Pratique des compétitions passées",
+                service2_feature4: "Payez après la séance",
+                service3_title: "Séances de Groupe",
+                service3_feature1: "Petits groupes (2-3 étudiants)",
+                service3_feature2: "Apprentissage collaboratif",
+                service3_feature3: "Rentable",
+                service3_feature4: "Payez après la séance",
+                service_cta: "Réserver Maintenant",
+                booking_title: "Réserver une Séance",
+                booking_success: "Votre réservation a été soumise avec succès! Nous vous contacterons dans les 24 heures pour confirmer.",
+                form_service: "Type de Service *",
+                form_service_select: "Sélectionner un service",
+                form_service_one: "Tutorat Individuel - 50$/heure",
+                form_service_comp: "Mathématiques de Compétition - 55$/heure",
+                form_service_group: "Séance de Groupe - 35$/étudiant",
+                form_date: "Date Préférée *",
+                form_time: "Heure Préférée *",
+                form_time_select: "Sélectionner l'heure",
+                form_location: "Lieu",
+                form_name: "Nom de l'Étudiant *",
+                form_grade: "Niveau Scolaire *",
+                form_grade_select: "Sélectionner le Niveau",
+                form_parent: "Nom du Parent",
+                form_email: "Email *",
+                form_phone: "Numéro de Téléphone",
+                form_topics: "Sujets à Couvrir",
+                payment_options: "Informations de Paiement:",
+                payment_cash: "• Argent comptant uniquement - payez après votre séance",
+                payment_policy: "• Aucun paiement d'avance requis",
+                form_submit: "Soumettre la Demande de Réservation",
+                resources_title: "Ressources Gratuites",
+                resource1_title: "Feuilles d'Exercices 9e Année",
+                resource1_desc: "Problèmes pratiques d'algèbre et de relations linéaires avec solutions étape par étape.",
+                resource2_title: "Guides 10e Année",
+                resource2_desc: "Aide-mémoire sur les fonctions quadratiques et la trigonométrie et problèmes pratiques.",
+                resource3_title: "Matériel 11e Année",
+                resource3_desc: "Problèmes de fonctions, trigonométrie et algèbre avancée avec solutions.",
+                resource4_title: "Conseils et Stratégies d'Examen",
+                resource4_desc: "Stratégies éprouvées pour les tests de mathématiques, la gestion du temps et la réduction de l'anxiété.",
+                resource_download: "Télécharger",
+                contact_title: "Me Contacter",
+                contact_subtitle: "Contactez-moi",
+                contact_email: "Email:",
+                contact_location: "Emplacement:",
+                contact_response: "Délai de Réponse:",
+                form_subject: "Sujet",
+                form_message: "Message *",
+                footer_tagline: "Rendre les mathématiques accessibles et agréables pour les étudiants d'Oakville.",
+                footer_links: "Liens Rapides",
+                footer_services: "Services",
+                footer_contact: "Coordonnées",
+                footer_text: "© 2023 Tutorat MathMaster Oakville. Tous droits réservés."
+            }
+        };
+
+        // Language Switching Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            let currentLang = 'en';
+            
+            // Set minimum date to today
+            const dateInput = document.getElementById('preferredDate');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            
+            // Generate time slots based on selected date
+            dateInput.addEventListener('change', function() {
+                generateTimeSlots(this.value);
+            });
+            
+            // Language switch handler
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Update active button
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update language content
+                    updateLanguage(lang);
+                    currentLang = lang;
+                });
+            });
+            
+            // Generate time slots based on day of week
+            function generateTimeSlots(dateString) {
+                const timeSelect = document.getElementById('preferredTime');
+                timeSelect.innerHTML = '<option value="" data-key="form_time_select">Select time</option>';
+                
+                const date = new Date(dateString);
+                const dayOfWeek = date.getDay(); // 0 = Sunday, 1 = Monday, etc.
+                
+                let startHour, endHour;
+                
+                // Set time ranges based on day of week
+                if (dayOfWeek === 0) { // Sunday
+                    startHour = 13; // 1:00 PM
+                    endHour = 18;   // 6:00 PM
+                } else if (dayOfWeek === 6) { // Saturday
+                    startHour = 9;  // 9:00 AM
+                    endHour = 18;   // 6:00 PM
+                } else { // Monday-Friday
+                    startHour = 15; // 3:00 PM
+                    endHour = 21;   // 9:00 PM
+                }
+                
+                // Generate time slots with 1.5 hour intervals
+                for (let hour = startHour; hour < endHour; hour += 1.5) {
+                    const hourInt = Math.floor(hour);
+                    const minutes = (hour % 1 === 0.5) ? 30 : 0;
+                    
+                    // Format time as HH:MM
+                    const timeString = `${hourInt.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                    
+                    // Create option element
+                    const option = document.createElement('option');
+                    option.value = timeString;
+                    
+                    // Format display time
+                    let displayTime;
+                    if (hourInt < 12) {
+                        displayTime = `${hourInt}:${minutes === 0 ? '00' : '30'} AM`;
+                    } else if (hourInt === 12) {
+                        displayTime = `12:${minutes === 0 ? '00' : '30'} PM`;
+                    } else {
+                        displayTime = `${hourInt - 12}:${minutes === 0 ? '00' : '30'} PM`;
+                    }
+                    
+                    option.textContent = displayTime;
+                    timeSelect.appendChild(option);
+                }
+                
+                // Update language for the select options
+                updateLanguage(currentLang);
+            }
+            
+            // Update all text elements with translations
+            function updateLanguage(lang) {
+                // Update all elements with data-key attribute
+                document.querySelectorAll('[data-key]').forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (translations[lang][key]) {
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.placeholder = translations[lang][key];
+                        } else if (element.tagName === 'OPTION') {
+                            // Only update option text if it's the placeholder option
+                            if (element.value === "") {
+                                element.textContent = translations[lang][key];
+                            }
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+                
+                // Update lang-content visibility
+                document.querySelectorAll('.lang-content').forEach(content => {
+                    if (content.getAttribute('data-lang') === lang) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Form submissions
+            document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    studentName: document.getElementById('studentName').value,
+                    email: document.getElementById('email').value,
+                    gradeLevel: document.getElementById('gradeLevel').value,
+                    serviceType: document.getElementById('serviceType').value,
+                    preferredDate: document.getElementById('preferredDate').value,
+                    preferredTime: document.getElementById('preferredTime').value,
+                    location: document.getElementById('location').value,
+                    parentName: document.getElementById('parentName').value,
+                    phone: document.getElementById('phone').value,
+                    topics: document.getElementById('topics').value
+                };
+                
+                // Send email notification (simulated)
+                sendEmailNotification(formData);
+                
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Scroll to success message
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                
+                // Reset form
+                this.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+            });
+            
+            // Simulate sending email notification
+            function sendEmailNotification(bookingData) {
+                // In a real implementation, this would send an actual email
+                // For this demo, we'll just log to console and show an alert
+                console.log('Email notification sent for booking:', bookingData);
+                
+                // Create a mailto link that would open the user's email client
+                const subject = `New Math Tutoring Booking - ${bookingData.studentName}`;
+                const body = `
+New booking request received:
+
+Student: ${bookingData.studentName}
+Grade: ${bookingData.gradeLevel}
+Service: ${bookingData.serviceType}
+Date: ${bookingData.preferredDate}
+Time: ${bookingData.preferredTime}
+Location: ${bookingData.location}
+Email: ${bookingData.email}
+Phone: ${bookingData.phone}
+Parent: ${bookingData.parentName}
+Topics: ${bookingData.topics}
+                `.trim();
+                
+                // This would open the user's email client with pre-filled content
+                // window.location.href = `mailto:houyixuan1027@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                
+                // For demo purposes, we'll just log this
+                console.log('Email content:', { subject, body });
+                
+                // In a production environment, you would use a server-side script or service like EmailJS
+                // to actually send the email without requiring user interaction
+            }
+            
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('contactName').value,
+                    email: document.getElementById('contactEmail').value,
+                    subject: document.getElementById('contactSubject').value,
+                    message: document.getElementById('contactMessage').value
+                };
+                
+                // In a real implementation, you would send this data to a server
+                alert(currentLang === 'en' 
+                    ? 'Message sent! We will respond within 24 hours.' 
+                    : 'Message envoyé ! Nous répondrons dans les 24 heures.');
+                
+                this.reset();
+            });
+            
+            // Initialize language
+            updateLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>
